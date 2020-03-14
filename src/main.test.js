@@ -1,12 +1,13 @@
 const prompts = require("prompts");
 const cli = require("./main");
+const version = require('../package').version;
 
 describe("CLI", () => {
   test("will print the version", () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
     console.log = jest.fn();
     expect(cli(["", "--version"]));
-    expect(console.log).toHaveBeenCalledWith("0.0.1");
+    expect(console.log).toHaveBeenCalledWith(version);
     expect(mockExit).toHaveBeenCalledWith(0);
   });
   test("will print help", () => {
