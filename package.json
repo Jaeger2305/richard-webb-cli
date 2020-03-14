@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jager2305/richard-webb-cli.git"
+    "url": "https://github.com/jaeger2305/richard-webb-cli.git"
   },
   "bin": {
     "richard-webb-cli": "bin/richard-webb-cli",
@@ -30,8 +30,8 @@
     "resume"
   ],
   "files": [
-    "./bin",
-    "./src"
+    "./bin/*",
+    "./src/*"
   ],
   "author": "Richard Webb",
   "license": "CC-BY-ND-4.0",
