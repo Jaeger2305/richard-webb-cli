@@ -2,7 +2,7 @@ const mockOpen = jest.fn();
 jest.mock("open", () => mockOpen);
 const fs = require("fs");
 const path = require("path");
-const utils = require("./utils");
+const utils = require("../src/utils");
 
 const isFileExisting = filePath =>
   new Promise(resolve =>

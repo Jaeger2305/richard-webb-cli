@@ -30,8 +30,8 @@
     "resume"
   ],
   "files": [
-    "./bin/*",
-    "./src/*"
+    "bin",
+    "src"
   ],
   "author": "Richard Webb",
   "license": "CC-BY-ND-4.0",

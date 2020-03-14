@@ -1,5 +1,5 @@
 const prompts = require("prompts");
-const cli = require("./main");
+const cli = require("../src/main");
 const version = require('../package').version;
 
 describe("CLI", () => {
