@@ -1,0 +1,57 @@
+{
+  "name": "richard-webb-cli",
+  "version": "0.0.1",
+  "description": "A CLI tool with documentation to deliver information on Richard Webb, a full-stack developer looking for a job in Berlin.",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jager2305/richard-webb-cli.git"
+  },
+  "bin": {
+    "richard-webb-cli": "bin/richard-webb-cli",
+    "@rwebb2305/cli": "bin/richard-webb-cli",
+    "rwc": "bin/richard-webb-cli"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs --no-cache",
+    "docs:build": "vuepress build docs",
+    "prettier:fix": "prettier --write **/*.js",
+    "eslint:fix": "prettier --write **/*.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "cli",
+    "vuepress",
+    "documentation",
+    "cv",
+    "resume"
+  ],
+  "files": [
+    "./bin",
+    "./src"
+  ],
+  "author": "Richard Webb",
+  "license": "CC-BY-ND-4.0",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "figlet": "^1.3.0",
+    "mock-argv": "^1.1.6",
+    "open": "^7.0.3",
+    "prompts": "^2.3.1",
+    "yargs": "^15.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "vuepress": "^1.3.1"
+  },
+  "engines": {
+    "node": ">=8.9.4"
+  }
+}
