@@ -16,9 +16,9 @@ Any of them can be run with the following commands.
 
 ### Help
 
-`rwc --help` or `rwc -h`
+`rwc --help`
 
-Returns help on a given command.
+Returns help on the CLI.
 
 ### Interactive
 `rwc --interactive` or `rwc -i`
