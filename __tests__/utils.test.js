@@ -4,6 +4,8 @@ const fs = require("fs");
 const path = require("path");
 const utils = require("../src/utils");
 
+beforeEach(() => mockOpen.mockClear());
+
 const isFileExisting = filePath =>
   new Promise(resolve =>
     fs.access(filePath, fs.F_OK, error => resolve(!error))
@@ -82,3 +84,44 @@ describe("CLI prompt options", () => {
     );
   });
 });
+
+describe("the prompt handler", () => {
+  test("handles handler responses", async () => {
+    const mockPromptSelectionNested = jest.fn();
+    const mockPromptSelection = jest
+      .fn()
+      .mockReturnValue({ value: mockPromptSelectionNested });
+    const mockPromptResponse = jest
+      .fn()
+      .mockReturnValue({ value: mockPromptSelection });
+    await utils.executePromptResponse({ value: mockPromptResponse });
+    expect(mockPromptSelection).toHaveBeenCalled();
+    expect(mockPromptSelectionNested).toHaveBeenCalled();
+  })
+  test("handles nested async responses", async () => {
+    const mockPromptSelectionNested = jest.fn();
+    const mockPromptSelection = jest
+      .fn()
+      .mockResolvedValue({ value: mockPromptSelectionNested });
+    const mockPromptResponse = jest
+      .fn()
+      .mockResolvedValue({ value: mockPromptSelection });
+    await utils.executePromptResponse({ value: mockPromptResponse });
+    expect(mockPromptSelection).toHaveBeenCalled();
+    expect(mockPromptSelectionNested).toHaveBeenCalled();
+  })
+  test("handles mixed handler and async", async () => {
+    // The question might return another question, and so on.
+    // This tests that recursion to one level deep.
+    const mockPromptSelectionNested = jest.fn();
+    const mockPromptSelection = jest
+      .fn()
+      .mockResolvedValue({ value: mockPromptSelectionNested });
+    const mockPromptResponse = jest
+      .fn()
+      .mockReturnValue({ value: mockPromptSelection });
+    await utils.executePromptResponse({ value: mockPromptResponse });
+    expect(mockPromptSelection).toHaveBeenCalled();
+    expect(mockPromptSelectionNested).toHaveBeenCalled();
+  });
+})
