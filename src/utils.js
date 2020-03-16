@@ -22,7 +22,8 @@ const actions = {
     open("mailto:rwebb2305@gmail.com?subject=richard-webb-cli", { wait: true }),
   sendFollow: () =>
     open("https://www.linkedin.com/in/richard-webb-09516a115/", { wait: true }), // follow on linkedin - required API keys embedded in the repo make this a bad idea.
-  sendLove: () => open("https://github.com/Jaeger2305/richard-webb-cli", { wait: true }), // star github repo - required API keys embedded in the repo make this a bad idea.
+  sendStar: () =>
+    open("https://github.com/Jaeger2305/richard-webb-cli", { wait: true }), // star github repo - required API keys embedded in the repo make this a bad idea.
   getVersion: () => console.log(version),
   exit: () => process.exit(0)
 };
@@ -58,7 +59,7 @@ const options = {
         choices: [
           { title: "Email", value: actions.sendEmail },
           { title: "Connect on LinkedIn", value: actions.sendFollow },
-          { title: "Love package", value: actions.sendLove }
+          { title: "Star package", value: actions.sendStar }
         ]
       })
   },

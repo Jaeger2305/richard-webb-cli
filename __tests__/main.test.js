@@ -1,23 +1,23 @@
 const prompts = require("prompts");
-const version = require('../package').version;
+const version = require("../package").version;
 const mockActions = {
   getSkills: jest.fn(),
   getHistory: jest.fn(),
   getExamples: jest.fn(),
   sendEmail: jest.fn(),
   sendFollow: jest.fn(),
-  sendLove: jest.fn(),
-}
+  sendStar: jest.fn()
+};
 const mockExecutePromptResponse = jest.fn();
 jest.mock("../src/utils", () => ({
   executePromptResponse: mockExecutePromptResponse,
   actions: mockActions,
   options: {}
-}))
+}));
 const cli = require("../src/main");
 
 beforeEach(() => {
-  Object.values(mockActions).forEach(mock => mock.mockClear())
+  Object.values(mockActions).forEach(mock => mock.mockClear());
   mockExecutePromptResponse.mockClear();
 });
 
@@ -75,11 +75,11 @@ describe("CLI", () => {
     expect(mockActions.sendFollow).toHaveBeenCalled();
     expect(mockExit).toHaveBeenCalledWith(0);
   });
-  test("will handle sending a love from the CLI", async () => {
+  test("will handle sending a star from the CLI", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
-    process.argv = ["rwc", "send", "--action", "love"];
+    process.argv = ["rwc", "send", "--action", "star"];
     await cli();
-    expect(mockActions.sendLove).toHaveBeenCalled();
+    expect(mockActions.sendStar).toHaveBeenCalled();
     expect(mockExit).toHaveBeenCalledWith(0);
   });
   test("runs in interactive mode with an async question", async () => {

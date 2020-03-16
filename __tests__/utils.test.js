@@ -61,8 +61,8 @@ describe("CLI actions", () => {
     utils.actions.sendFollow();
     expect(mockOpen).toHaveBeenCalled();
   });
-  test("send love opens a link", () => {
-    utils.actions.sendLove();
+  test("send star opens a link", () => {
+    utils.actions.sendStar();
     expect(mockOpen).toHaveBeenCalled();
   });
   test("exit will exit the process", () => {
@@ -97,7 +97,7 @@ describe("the prompt handler", () => {
     await utils.executePromptResponse({ value: mockPromptResponse });
     expect(mockPromptSelection).toHaveBeenCalled();
     expect(mockPromptSelectionNested).toHaveBeenCalled();
-  })
+  });
   test("handles nested async responses", async () => {
     const mockPromptSelectionNested = jest.fn();
     const mockPromptSelection = jest
@@ -109,7 +109,7 @@ describe("the prompt handler", () => {
     await utils.executePromptResponse({ value: mockPromptResponse });
     expect(mockPromptSelection).toHaveBeenCalled();
     expect(mockPromptSelectionNested).toHaveBeenCalled();
-  })
+  });
   test("handles mixed handler and async", async () => {
     // The question might return another question, and so on.
     // This tests that recursion to one level deep.
@@ -124,4 +124,4 @@ describe("the prompt handler", () => {
     expect(mockPromptSelection).toHaveBeenCalled();
     expect(mockPromptSelectionNested).toHaveBeenCalled();
   });
-})
+});

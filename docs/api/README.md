@@ -67,6 +67,6 @@ Available options are
 
 - email - Opens a mailto link with whatever program is configured to open them on the users system.
 - follow - Opens a link to Richard Webb's LinkedIn profile page.
-- love - Opens a link to the rwc GitHub.
+- star - Opens a link to the rwc GitHub.
 
 For security reasons, further options aren't viable for a CLI that's publicly shared.

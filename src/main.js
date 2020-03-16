@@ -23,7 +23,7 @@ function handleDefault(argv) {
 async function handleSend(argv) {
   if (argv.action.includes("email")) await actions.sendEmail();
   if (argv.action.includes("follow")) await actions.sendFollow();
-  if (argv.action.includes("love")) await actions.sendLove();
+  if (argv.action.includes("star")) await actions.sendStar();
 }
 
 function handleGet(argv) {
@@ -68,7 +68,7 @@ module.exports = async function main() {
         yargs.option("action", {
           default: "email",
           array: true,
-          choices: ["email", "follow", "love"]
+          choices: ["email", "follow", "star"]
         }),
       handler: handleSend
     })
