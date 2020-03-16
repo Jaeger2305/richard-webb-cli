@@ -33,7 +33,7 @@ function handleGet(argv) {
 }
 
 module.exports = async function main() {
-  const yargsConfig = await require('yargs')(process.argv.slice(1))
+  const yargsConfig = await require("yargs")(process.argv.slice(1))
     .command({
       command: "*",
       description: "welcome message",
@@ -63,7 +63,8 @@ module.exports = async function main() {
     })
     .command({
       command: "send",
-      description: "give Richard Webb something, like an email or a warm fuzzy feeling",
+      description:
+        "give Richard Webb something, like an email or a warm fuzzy feeling",
       builder: yargs =>
         yargs.option("action", {
           default: "email",
