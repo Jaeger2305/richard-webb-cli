@@ -40,19 +40,19 @@ You can see a [live version](https://react-roles.herokuapp.com) or checkout the 
 <Badge text="D3.js"/>
 <Badge text="Vue Test Utils"/>
 
-Are you bored of the typical navbar, with inaccessible hover overs and covering half the screen? I wanted a navigation option that could pop up as a modal, with large buttons to navigate through a website, in a novel way.
+Are you bored of the typical navbar, with inaccessible hover-overs and covering half the screen? I wanted a navigation option that could pop up as a modal, with large buttons to navigate through a website, in a novel way.
 
 <img :src="$withBase('/vue-nav-wheel-shape-customisation.gif')" alt="a quickfire gif video of a hundred random configurations possible with the vue-nav-wheel open source package, made by Richard Webb">
 
 The result is a [package on npm](https://www.npmjs.com/package/vue-nav-wheel), which takes an existing vue-router config and renders it in a radial and recursive way, with a number of configurable options both for function and style. Here's the [source code](https://github.com/Jaeger2305/vue-nav-wheel).
 
-Stylistic design isn't my strength, so I wanted the styling and the look and feel to be configurable, in case someone wants to build on the idea. The typical apps I develop have significant domain logic and complex pure JavaScript logic, and as a result there sometimes isn't scope for a creative SVG implementation.
+Stylistic design isn't my strength, so I wanted the styling and the look and feel to be configurable in case someone wants to build on the idea. The typical apps I develop have significant domain logic and complex pure JavaScript logic, and as a result there sometimes isn't scope for a creative SVG implementation.
 
 <img :src="$withBase('/nav-wheel-style-1.png')" height="240" alt="a navigation wheel with a purple center and increasingly lighter shades of green on the outside">
 <img :src="$withBase('/nav-wheel-style-2.png')" height="240" alt="a navigation wheel with a grey background and jet black annulars with a red outline">
 <img :src="$withBase('/nav-wheel-style-3.png')" height="240" alt="a navigation wheel with smoothed edges and a SVG icon of a stickman holding coffee cups at the center">
 
-Integrating with D3-shape and handling the reactivity of SVG elements in Vue surprised me at how little trouble I had. The unit testing of SVG Vue components did turn out to be fiddly in some parts, but was also mostly fine.
+Integrating with D3-shape and handling the reactivity of SVG elements in Vue surprised me with how little trouble I had. The unit testing of SVG Vue components did turn out to be fiddly in some parts, but was also mostly fine.
 
 ### Features
 
@@ -71,7 +71,7 @@ Integrating with D3-shape and handling the reactivity of SVG elements in Vue sur
 <Badge text="Express"/>
 <Badge text="Docker"/>
 
-The charity I've been involved with for 2.5 years was sufferring from a lack of traceability, manual processes, and paper usage. With a small budget and environmental conscience, I wanted to build something that would help make scheduling classes easier, reducing the scurry on a Friday night to prepare for the Saturday morning.
+The charity I've been involved with for 2.5 years was sufferring from a lack of traceability, manual processes, and paper usage. With a small budget and an environmental conscience, I wanted to build something that would help make scheduling classes easier, reducing the scurry on a Friday night to prepare for the Saturday morning.
 
 The catch: 0 budget.
 
@@ -106,5 +106,5 @@ A lot of the fun stuff I've worked on is behind closed doors. In reality, I spen
 Some smaller projects you might like to ask me about, outside of the day to day:
 
 - A collaborative foray into game development with Unity
-- Sever side rendered pokedex
+- Sever-side rendered Pokédex
 - Machine learning in the browser and storing models in Mongo

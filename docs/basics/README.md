@@ -70,7 +70,7 @@ Assisting in the running of an English language school for adult speakers of oth
 | Place                         | Date        | Qualification                           |
 | ----------------------------- | ----------- | --------------------------------------- |
 | University of Leeds           | 2011-2015   | MBIOL Biochemistry 2:1                  |
-| King Ecgbert Secondary School | 2004 - 2011 | 5 A2/AS (AAAAB), 11 GCSEs (5A*, 4A, 3B) |
+| King Ecgbert School           | 2004 - 2011 | 5 A2/AS (AAAAB), 11 GCSEs (5A*, 4A, 3B) |
 
 ## Key traits
 
