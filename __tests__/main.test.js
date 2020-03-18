@@ -16,19 +16,30 @@ jest.mock("../src/utils", () => ({
 }));
 const cli = require("../src/main");
 
+const aliases = {
+  version: ["--version", "-v"],
+  help: ["--help"],
+  interactive: ["--interactive", "-i"],
+  keepAlive: ["--keep-alive", "-k"],
+  quiet: ["--quiet", "-q"]
+};
+
 beforeEach(() => {
   Object.values(mockActions).forEach(mock => mock.mockClear());
   mockExecutePromptResponse.mockClear();
 });
 
 describe("CLI", () => {
-  test("will print the version", async () => {
-    const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
-    console.log = jest.fn();
-    process.argv = ["rwc", "--version"];
-    await cli();
-    expect(console.log).toHaveBeenCalledWith(version);
-    expect(mockExit).toHaveBeenCalledWith(0);
+  aliases.version.forEach(versionAlias => {
+    test(`will print the version when passing in ${versionAlias}`, async () => {
+      const mockLog = jest.fn();
+      console.log = mockLog;
+      const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
+      process.argv = ["rwc", versionAlias];
+      await cli();
+      expect(mockLog).toHaveBeenCalledWith(version);
+      expect(mockExit).toHaveBeenCalledWith(0);
+    });
   });
   test("will print help", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
@@ -82,17 +93,31 @@ describe("CLI", () => {
     expect(mockActions.sendStar).toHaveBeenCalled();
     expect(mockExit).toHaveBeenCalledWith(0);
   });
-  test("runs in interactive mode with an async question", async () => {
-    const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
-    const mockPromptSelection = jest.fn();
-    const mockPromptResponse = jest
-      .fn()
-      .mockResolvedValue({ value: mockPromptSelection });
-    prompts.inject([mockPromptResponse]);
-    process.argv = ["", "--interactive"];
-    await cli();
-    expect(mockExecutePromptResponse).toHaveBeenCalled();
-    expect(mockExit).toHaveBeenCalledWith(0);
+  aliases.interactive.forEach(interactiveAlias => {
+    test(`runs in interactive mode with an async question using ${interactiveAlias}`, async () => {
+      const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
+      const mockPromptSelection = jest.fn();
+      const mockPromptResponse = jest
+        .fn()
+        .mockResolvedValue({ value: mockPromptSelection });
+      prompts.inject([mockPromptResponse]);
+      process.argv = ["rwc", interactiveAlias];
+      await cli();
+      expect(mockExecutePromptResponse).toHaveBeenCalled();
+      expect(mockExit).toHaveBeenCalledWith(0);
+    });
+  });
+  aliases.quiet.forEach(quietAlias => {
+    test(`hides the ASCII art with argument ${quietAlias}`, async () => {
+      const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
+      console.log = jest.fn();
+      process.argv = ["rwc", quietAlias];
+      await cli();
+      expect(mockActions.handleDefault).toBeCalledWith(
+        expect.objectContaining({ quiet: true })
+      );
+      expect(mockExit).toHaveBeenCalledWith(0);
+    });
   });
   test("exits automatically if no parameters are supplied", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
@@ -100,18 +125,20 @@ describe("CLI", () => {
     await cli();
     expect(mockExit).toHaveBeenCalledWith(0);
   });
-  test("will prompt to keep alive if param supplied", async () => {
-    const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
-    const mockPromptSelection = jest.fn();
-    const mockPromptResponse = jest
-      .fn()
-      .mockResolvedValue({ value: mockPromptSelection });
-    // Supplies a mock response, keeps alive once, supplies it again, then exits.
-    prompts.inject([mockPromptResponse, false, mockPromptResponse, true]);
-    process.argv = ["rwc", "--interactive", "--keep-alive"];
-    await cli();
-    expect(mockExecutePromptResponse.mock.calls.length).toBe(2);
-    expect(mockExit).toHaveBeenCalledWith(0);
+  aliases.keepAlive.forEach(keepAliveAlias => {
+    test(`will prompt to keep alive if param supplied for ${keepAliveAlias}`, async () => {
+      const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
+      const mockPromptSelection = jest.fn();
+      const mockPromptResponse = jest
+        .fn()
+        .mockResolvedValue({ value: mockPromptSelection });
+      // Supplies a mock response, keeps alive once, supplies it again, then exits.
+      prompts.inject([mockPromptResponse, false, mockPromptResponse, true]);
+      process.argv = ["rwc", aliases.interactive[0], keepAliveAlias];
+      await cli();
+      expect(mockExecutePromptResponse.mock.calls.length).toBe(2);
+      expect(mockExit).toHaveBeenCalledWith(0);
+    });
   });
   test("will not prompt to keep alive if param not supplied", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
@@ -120,7 +147,7 @@ describe("CLI", () => {
       .fn()
       .mockResolvedValue({ value: mockPromptSelection });
     prompts.inject([mockPromptResponse, false, mockPromptResponse, true]);
-    process.argv = ["rwc", "--interactive"];
+    process.argv = ["rwc", aliases.interactive[0]];
     await cli();
     expect(mockExecutePromptResponse.mock.calls.length).toBe(1);
     expect(mockExit).toHaveBeenCalledWith(0);
