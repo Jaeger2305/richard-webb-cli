@@ -1,6 +1,6 @@
 {
   "name": "richard-webb-cli",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A CLI tool with documentation to deliver information on Richard Webb, a full-stack developer looking for a job in Berlin.",
   "repository": {
     "type": "git",
