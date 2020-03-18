@@ -21,7 +21,7 @@
     "prettier:fix": "prettier --write **/*.js",
     "eslint": "eslint **/*.js",
     "eslint:fix": "eslint --fix **/*.js",
-    "test": "jest && prettier && eslint"
+    "test": "jest && npm run prettier && npm run eslint"
   },
   "keywords": [
     "cli",
