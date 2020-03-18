@@ -1,12 +1,14 @@
 const prompts = require("prompts");
-const version = require("../package").version;
 const mockActions = {
   getSkills: jest.fn(),
   getHistory: jest.fn(),
   getExamples: jest.fn(),
   sendEmail: jest.fn(),
   sendFollow: jest.fn(),
-  sendStar: jest.fn()
+  sendStar: jest.fn(),
+  handleDefault: jest.fn(),
+  handleSend: jest.fn(),
+  handleGet: jest.fn()
 };
 const mockExecutePromptResponse = jest.fn();
 jest.mock("../src/utils", () => ({
@@ -14,6 +16,7 @@ jest.mock("../src/utils", () => ({
   actions: mockActions,
   options: {}
 }));
+const version = require("../package").version;
 const cli = require("../src/main");
 
 const aliases = {
@@ -55,42 +58,54 @@ describe("CLI", () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
     process.argv = ["rwc", "get", "--info", "skills"];
     await cli();
-    expect(mockActions.getSkills).toHaveBeenCalled();
+    expect(mockActions.handleGet).toBeCalledWith(
+      expect.objectContaining({ info: ["skills"] })
+    );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
   test("will print history from the CLI", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
     process.argv = ["rwc", "get", "--info", "history"];
     await cli();
-    expect(mockActions.getHistory).toHaveBeenCalled();
+    expect(mockActions.handleGet).toBeCalledWith(
+      expect.objectContaining({ info: ["history"] })
+    );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
   test("will print examples from the CLI", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
     process.argv = ["rwc", "get", "--info", "examples"];
     await cli();
-    expect(mockActions.getExamples).toHaveBeenCalled();
+    expect(mockActions.handleGet).toBeCalledWith(
+      expect.objectContaining({ info: ["examples"] })
+    );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
   test("will handle sending an email from the CLI", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
     process.argv = ["rwc", "send", "--action", "email"];
     await cli();
-    expect(mockActions.sendEmail).toHaveBeenCalled();
+    expect(mockActions.handleSend).toBeCalledWith(
+      expect.objectContaining({ action: ["email"] })
+    );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
   test("will handle sending a follow from the CLI", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
     process.argv = ["rwc", "send", "--action", "follow"];
     await cli();
-    expect(mockActions.sendFollow).toHaveBeenCalled();
+    expect(mockActions.handleSend).toBeCalledWith(
+      expect.objectContaining({ action: ["follow"] })
+    );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
   test("will handle sending a star from the CLI", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
     process.argv = ["rwc", "send", "--action", "star"];
     await cli();
-    expect(mockActions.sendStar).toHaveBeenCalled();
+    expect(mockActions.handleSend).toBeCalledWith(
+      expect.objectContaining({ action: ["star"] })
+    );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
   aliases.interactive.forEach(interactiveAlias => {
@@ -119,10 +134,11 @@ describe("CLI", () => {
       expect(mockExit).toHaveBeenCalledWith(0);
     });
   });
-  test("exits automatically if no parameters are supplied", async () => {
+  test("performs the default action if no arguments are supplied", async () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
     process.argv = ["rwc"];
     await cli();
+    expect(mockActions.handleDefault).toHaveBeenCalled();
     expect(mockExit).toHaveBeenCalledWith(0);
   });
   aliases.keepAlive.forEach(keepAliveAlias => {

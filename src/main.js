@@ -1,36 +1,5 @@
-const figlet = require("figlet");
 const prompts = require("prompts");
-const chalk = require("chalk");
 const { options, actions, executePromptResponse } = require("./utils");
-
-function handleDefault(argv) {
-  if (!argv.quiet) {
-    console.log(
-      chalk.blue(
-        figlet.textSync("Richard Webb CLI", {
-          font: "Small",
-          horizontalLayout: "default",
-          verticalLayout: "default"
-        })
-      )
-    );
-  }
-  console.log(
-    'Thanks for trying this CLI! Run "rwc --help" to see the available commands'
-  );
-}
-
-async function handleSend(argv) {
-  if (argv.action.includes("email")) await actions.sendEmail();
-  if (argv.action.includes("follow")) await actions.sendFollow();
-  if (argv.action.includes("star")) await actions.sendStar();
-}
-
-function handleGet(argv) {
-  if (argv.info.includes("skills")) actions.getSkills();
-  if (argv.info.includes("history")) actions.getHistory();
-  if (argv.info.includes("examples")) actions.getExamples();
-}
 
 module.exports = async function main() {
   const yargsConfig = await require("yargs")(process.argv.slice(1))
@@ -38,7 +7,7 @@ module.exports = async function main() {
       command: "*",
       description: "welcome message",
       builder: () => {},
-      handler: handleDefault
+      handler: actions.handleDefault
     })
     .option("version", {
       description: "get the package version",
@@ -71,7 +40,7 @@ module.exports = async function main() {
           array: true,
           choices: ["email", "follow", "star"]
         }),
-      handler: handleSend
+      handler: actions.handleSend
     })
     .command({
       command: "get",
@@ -82,7 +51,7 @@ module.exports = async function main() {
           array: true,
           choices: ["skills", "history", "examples"]
         }),
-      handler: handleGet
+      handler: actions.handleGet
     }).argv;
   const { interactive: isInteractive, "keep-alive": isKeptAlive } = yargsConfig;
 

@@ -1,7 +1,9 @@
-const version = require("../package").version;
+const figlet = require("figlet");
+const chalk = require("chalk");
 const prompts = require("prompts");
 const { readFileSync } = require("fs");
 const open = require("open");
+const version = require("../package").version;
 
 async function executePromptResponse(response) {
   const responseValue = await (response && typeof response.value === "function"
@@ -12,6 +14,32 @@ async function executePromptResponse(response) {
 }
 
 const actions = {
+  handleDefault: argv => {
+    if (!argv.quiet) {
+      console.log(
+        chalk.blue(
+          figlet.textSync("Richard Webb CLI", {
+            font: "Small",
+            horizontalLayout: "default",
+            verticalLayout: "default"
+          })
+        )
+      );
+    }
+    console.log(
+      'Thanks for trying this CLI! Run "rwc --help" to see the available commands'
+    );
+  },
+  handleSend: async argv => {
+    if (argv.action.includes("email")) await actions.sendEmail();
+    if (argv.action.includes("follow")) await actions.sendFollow();
+    if (argv.action.includes("star")) await actions.sendStar();
+  },
+  handleGet: argv => {
+    if (argv.info.includes("skills")) actions.getSkills();
+    if (argv.info.includes("history")) actions.getHistory();
+    if (argv.info.includes("examples")) actions.getExamples();
+  },
   getSkills: () =>
     console.log(readFileSync("./docs/basics/API-skills.md", "utf8")),
   getHistory: () =>

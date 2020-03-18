@@ -1,21 +1,89 @@
-const mockOpen = jest.fn();
-jest.mock("open", () => mockOpen);
 const fs = require("fs");
 const path = require("path");
-const utils = require("../src/utils");
+const chalk = require("chalk");
+const figlet = require("figlet");
 
-beforeEach(() => mockOpen.mockClear());
+const mockOpen = jest.fn();
+jest.mock("open", () => mockOpen);
+const mockPrompt = jest.fn();
+jest.mock("prompts", () => mockPrompt);
+
+const utils = require("../src/utils");
+const version = require("../package").version;
+
+// Just pass through the console markups.
+Object.defineProperty(chalk, "blue", { value: text => text });
+Object.defineProperty(figlet, "textSync", { value: text => text });
+
+beforeEach(() => {
+  mockOpen.mockClear();
+  mockPrompt.mockClear();
+});
 
 const isFileExisting = filePath =>
   new Promise(resolve =>
     fs.access(filePath, fs.F_OK, error => resolve(!error))
   );
 
+// Handlers can orchestrate other actions.
+const handlers = [
+  {
+    handlerName: "handleSend",
+    action: "sendEmail",
+    param: { action: ["email"] }
+  },
+  {
+    handlerName: "handleSend",
+    action: "sendFollow",
+    param: { action: ["follow"] }
+  },
+  {
+    handlerName: "handleSend",
+    action: "sendStar",
+    param: { action: ["star"] }
+  },
+  {
+    handlerName: "handleGet",
+    action: "getSkills",
+    param: { info: ["skills"] }
+  },
+  {
+    handlerName: "handleGet",
+    action: "getHistory",
+    param: { info: ["history"] }
+  },
+  {
+    handlerName: "handleGet",
+    action: "getExamples",
+    param: { info: ["examples"] }
+  }
+];
+
 describe("CLI actions", () => {
   test("all actions are a handler", () => {
     expect(
       Object.values(utils.actions).every(action => typeof action === "function")
     ).toBe(true);
+  });
+  test("handle default displays ASCII art and a welcome message", () => {
+    console.log = jest.fn();
+    utils.actions.handleDefault({});
+    expect(console.log.mock.calls[0][0]).toBe("Richard Webb CLI");
+    expect(console.log.mock.calls[1][0]).toMatch(/Thanks for trying this CLI/);
+  });
+  test("the default action prints a welcome message with no ASCII art if quiet is specified", () => {
+    console.log = jest.fn();
+    utils.actions.handleDefault({ quiet: true });
+    expect(console.log.mock.calls[0][0]).toMatch(/Thanks for trying this CLI/);
+  });
+  handlers.forEach(({ handlerName, action, param }) => {
+    test(`the ${handlerName} handler will ${action} if its argument is supplied`, () => {
+      console.log = jest.fn();
+      const mockAction = jest.spyOn(utils.actions, action);
+      utils.actions[handlerName](param);
+      expect(mockAction).toHaveBeenCalled();
+      mockAction.mockRestore();
+    });
   });
   test("get skills file exists", async () => {
     expect(
@@ -70,6 +138,11 @@ describe("CLI actions", () => {
     utils.actions.exit();
     expect(mockExit).toHaveBeenCalledWith(0);
   });
+  test("version prints the version", () => {
+    console.log = jest.fn();
+    utils.actions.getVersion();
+    expect(console.log.mock.calls[0][0]).toBe(version);
+  });
 });
 
 describe("CLI prompt options", () => {
@@ -83,9 +156,30 @@ describe("CLI prompt options", () => {
       true
     );
   });
+  test("get attribute is a prompt where all values are actions", () => {
+    utils.options.getAttribute.value();
+    expect(Object.values(utils.actions)).toEqual(
+      expect.arrayContaining(
+        mockPrompt.mock.calls[0][0].choices.map(({ value }) => value)
+      )
+    );
+  });
+  test("send info is a prompt where all values are actions", () => {
+    utils.options.sendInfo.value();
+    expect(Object.values(utils.actions)).toEqual(
+      expect.arrayContaining(
+        mockPrompt.mock.calls[0][0].choices.map(({ value }) => value)
+      )
+    );
+  });
 });
 
 describe("the prompt handler", () => {
+  test("doesn't fail if not a handler", async () => {
+    const promptResponseExecutor = jest.spyOn(utils, "executePromptResponse");
+    await utils.executePromptResponse(undefined);
+    expect(promptResponseExecutor).toBeCalledTimes(1);
+  });
   test("handles handler responses", async () => {
     const mockPromptSelectionNested = jest.fn();
     const mockPromptSelection = jest
