@@ -1,5 +1,26 @@
 ### Examples
 
+## Dobble clone
+
+A quick project in React and Typescript to help learn a language through play.
+
+source: https://github.com/Jaeger2305/match-language
+site: https://eager-ritchie-aaa505.netlify.app/
+
+## Industrialist
+
+A scalable websocket/event driven architecture with a native front end, to serve a real-time game inspired by a board game.
+
+source: private
+site: private
+
+## Mental Health Tracker
+
+A Svelte based quick project to discover the differences and advantages of using another front end framework.
+
+source: https://github.com/Jaeger2305/mental-health-tracker
+site: http://mht-mental-health-tracker.herokuapp.com/
+
 ## Sprint roles
 A full-stack application using React and GraphQL to demonstrate the roles and responsibilities in complicated Agile projects.
 

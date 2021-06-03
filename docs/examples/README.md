@@ -2,6 +2,44 @@
 
 This page documents some of my projects, giving links to the demo sites and source code where appropriate.
 
+## Dobble clone <img :src="$withBase('/dobble-clone.png')" height="20" alt="the overall playing field with 3 Dobble cards">
+<Badge text="React"/>
+<Badge text="Typescript"/>
+
+Dobble is a fast paced simple matching game, and is great to play in different languages. Now I have it always available on [website](https://eager-ritchie-aaa505.netlify.app/)!
+
+<img :src="$withBase('/dobble-clone.gif')"  height="367" alt="a few rounds of matching cards in Dobble, made by Richard Webb">
+
+The goal of this project was to see what I could get done in just a couple of evenings, starting from nothing, to a hosted, designed and functional website. The [source](https://github.com/Jaeger2305/match-language) covers global state with React context, as well as using React Hooks and an easy to understand component hierarchy.
+
+## Industrialist <img :src="$withBase('/industrialist.png')" height="20" alt="android logo spelling industrialist over a cloud background with green forest">
+<Badge text="Go"/>
+<Badge text="Kafka"/>
+<Badge text="NativeScript"/>
+<Badge text="Docker"/>
+
+A mixed real-time/turn-based game with custom assets and scalable architecture
+
+After hearing lots about Native development, I was curious to find out how hard it would be to transfer my web skills into native development. I took the plunge with NativeScript and NativeScript Vue. Whilst there is a core following, it's difficult to recommend this for a project of this scope, which dealt with many custom requirements. For a proof of concept, I would happily return to NativeScript. However, other alternatives like React Native, Flutter and Ionic do seem to have more of a following.
+
+The second interesting part was writing the websocket API inside of Go which was, as promised, really easy and enjoyable. I would seriously consider using Go for future project work, although mocking some interfaces for testing from 3rd party plugins was not easy.
+
+<img :src="$withBase('/industrialist-play.png')" height="300" alt="the main play area with coal mines, trading posts and more">
+
+Currently available only to select users on the Google Play store - if you're interested in testing, let me know!
+
+## Mental Health Tracker <img :src="$withBase('/mht.png')" height="20" alt="the 4 burners essential for mental health; exercise, sleep, social and food">
+<Badge text="Svelte"/>
+<Badge text="Typescript"/>
+
+The Corona times haven't been easy for anyone, and I've long believed my own mental health boils down to just 4 topics: exercise, sleep, social and food. I thought it'd be a good idea to track these over time, to monitor if my mood could be boosted by improving any of these key metrics.
+
+I found the animations and reactivity super easy to deal with, as well as easy Typescript integration, and would be happy to work with it on a bigger project.
+
+<img :src="$withBase('/mht.gif')"  height="367" alt="configure the 4 burners with SVG animations">
+
+Have a play on your [local machine](http://mht-mental-health-tracker.herokuapp.com/) and check out the [source code](https://github.com/Jaeger2305/mental-health-tracker).
+
 ## Sprint roles <img :src="$withBase('/react-roles-svg.png')" height="20" alt="the main viewport of react-roles, detailing the basic roles in a sprint as colourful circles that can be interacted with, taking advantage of d3.js">
 <Badge text="GraphQL"/>
 <Badge text="React"/>
