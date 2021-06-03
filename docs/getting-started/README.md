@@ -17,7 +17,7 @@ The site is split into sections that mimic traditional software documentation.
 
 | Sitelink                 | Content       | Description                                                                                                 |
 | ------------------------ | ------------- | ----------------------------------------------------------------------------------------------------------- |
-| [Basics](/basics/)       | CV            | The markdown version of my 2020 CV                                                                          |
+| [Basics](/basics/)       | CV            | The markdown version of my 2021 CV                                                                          |
 | [Examples](/examples/)   | Portfolio     | An overview of my public projects. What I've done, what's coming next, technologies used and lessons learnt |
 | [API](/api/)             | rwc docs      | The documentation for the CLI tool                                                                          |
 

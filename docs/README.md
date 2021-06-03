@@ -12,5 +12,5 @@ features:
   details: Always searching for and open to inspiration and improvements
 - title: Pragmatic
   details: Let's solve complex challenges in the simplest way possible, together.
-footer: CC-BY-ND Licensed | Copyright © 2020-present Richard Webb
+footer: CC-BY-ND Licensed | Copyright © 2021-present Richard Webb
 ---
