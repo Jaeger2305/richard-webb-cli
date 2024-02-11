@@ -6,11 +6,11 @@ tagline: The CV and CLI documentation for all things me
 actionText: Get Started →
 actionLink: /getting-started/
 features:
-- title: Full-stack
-  details: Comfortable working across a codebase and seeing changes through end-to-end, capable of seeing the big picture whilst retaining focus.
-- title: Collaborative
-  details: Always searching for and open to inspiration and improvements
+- title: Technical
+  details: Whether it's APIs, databases or E2E tests, I know my way around and still can muck in
+- title: People first
+  details: I listen before acting, and foster a culture of feedback to keep processes running transparently and openly
 - title: Pragmatic
-  details: Let's solve complex challenges in the simplest way possible, together.
+  details: My solutions tackle the problems of today, tailored for circumstance, skills and people
 footer: CC-BY-ND Licensed | Copyright © 2021-present Richard Webb
 ---
