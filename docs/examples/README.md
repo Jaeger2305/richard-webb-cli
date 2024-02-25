@@ -2,7 +2,21 @@
 
 This page documents some of my projects, giving links to the demo sites and source code where appropriate.
 
+## Biome Builder <img :src="$withBase('/biome-builder.png')"  height="20" alt="in the industrial era">
+
+<Badge text="C#"/>
+<Badge text="Unity"/>
+
+My itch profile is full of prototypes from gamejams, learning many techniques of game development along the way.
+
+The culmination of these learnings is a feature rich, but basic [rhythm game](https://richard-webb.itch.io/biomebuilder), where different biomes are constructed if the beat is hit on time. There are translated voiceovers, dynamic sound achieved via FMOD, post processing and 3d effects, demonstrating what a final game might look like.
+
+<img :src="$withBase('/biome-builder.png')"  height="367" alt="in the industrial era">
+
+I take a lot of inspiration from the game development process and industry, the trends and techniques applied can often be applied to the software development lifecycle, but typically live even closer to the bone.
+
 ## Dobble clone <img :src="$withBase('/dobble-clone.png')" height="20" alt="the overall playing field with 3 Dobble cards">
+
 <Badge text="React"/>
 <Badge text="Typescript"/>
 
@@ -13,6 +27,7 @@ Dobble is a fast paced simple matching game, and is great to play in different l
 The goal of this project was to see what I could get done in just a couple of evenings, starting from nothing, to a hosted, designed and functional website. The [source](https://github.com/Jaeger2305/match-language) covers global state with React context, as well as using React Hooks and an easy to understand component hierarchy.
 
 ## Industrialist <img :src="$withBase('/industrialist.png')" height="20" alt="android logo spelling industrialist over a cloud background with green forest">
+
 <Badge text="Go"/>
 <Badge text="Kafka"/>
 <Badge text="NativeScript"/>
@@ -29,6 +44,7 @@ The second interesting part was writing the websocket API inside of Go which was
 Currently available only to select users on the Google Play store - if you're interested in testing, let me know!
 
 ## Mental Health Tracker <img :src="$withBase('/mht.png')" height="20" alt="the 4 burners essential for mental health; exercise, sleep, social and food">
+
 <Badge text="Svelte"/>
 <Badge text="Typescript"/>
 
@@ -41,6 +57,7 @@ I found the animations and reactivity super easy to deal with, as well as easy T
 Have a play on your [local machine](http://mht-mental-health-tracker.herokuapp.com/) and check out the [source code](https://github.com/Jaeger2305/mental-health-tracker).
 
 ## Sprint roles <img :src="$withBase('/react-roles-svg.png')" height="20" alt="the main viewport of react-roles, detailing the basic roles in a sprint as colourful circles that can be interacted with, taking advantage of d3.js">
+
 <Badge text="GraphQL"/>
 <Badge text="React"/>
 <Badge text="Node.js"/>
@@ -50,6 +67,7 @@ Have a play on your [local machine](http://mht-mental-health-tracker.herokuapp.c
 <Badge text="D3.js"/>
 
 Have you ever started on a project that was half way through its 10th sprint, and there are 20 people doing a mix of roles? I find myself asking,
+
 1. Who does what?
 1. Who talks to who?
 1. How is this different to my last project?
@@ -74,6 +92,7 @@ You can see a [live version](https://react-roles.herokuapp.com) or checkout the 
 - Initialise with a default config
 
 ## Vue nav-wheel <img :src="$withBase('/vue-nav-wheel-main.png')" height="20" alt="a basic smooth navigation wheel, with links to child pages spreading out from the center">
+
 <Badge text="Vue.js"/>
 <Badge text="D3.js"/>
 <Badge text="Vue Test Utils"/>
@@ -95,13 +114,14 @@ Integrating with D3-shape and handling the reactivity of SVG elements in Vue sur
 ### Features
 
 - An SVG viewport that renders a vue-router config
-- Conditional shows routes depending on 
+- Conditional shows routes depending on
 - Adjusts the shape and size of routes depending on context and config
 - Interactive look and feel
 - Highly customisable and stylable, using BEM notation
 - Plug and play in a standard Vue way
 
 ## English4all administration <img :src="$withBase('/e4a-classes-table.png')" height="20" alt="a simple list of cards, with details of the classes in each">
+
 <Badge text="Vue.js"/>
 <Badge text="Node.js"/>
 <Badge text="MongoDB"/>
