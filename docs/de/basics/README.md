@@ -10,94 +10,104 @@ If you've already seen my CV, skip to the [examples](/de/examples/)
 
 [[toc]]
 
-## Headline
+## Schlagzeile
 
-Enthusiastic full-stack web developer with 5 years’ experience working in fast-paced Agile teams to meet the demands of several complex business web applications. 
-Strongest in Node.js and front-end frameworks, but a good working knowledge of MongoDB, CI/CD and JavaScript testing practices. 
+Technischer und datengetriebener Engineering Manager mit 8 Jahren Erfahrung in schnelllebigen agilen Umgebungen, der Möglichkeiten für Mitarbeiter schafft und deren Entwicklung priorisiert
 
-## Employment history
+## Beschäftigungsgeschichte
 
-### June 2020 – Current | SGEF Digital Factory | Developer Team Lead
+### Oktober 2021 - Aktuell | Klima.Metrix | Engineering Manager | Berlin (hybrid)
+
+<Badge text="Leiterschaft"/>
+<Badge text="Rekrutierung"/>
+<Badge text="NestJS"/>
+<Badge text="React"/>
+<Badge text="AWS"/>
+
+- Einführung von **DORA-KPI-Metriken**, verbessert durch SPACE-Umfragen, Verbesserung der Entwicklerzufriedenheit und Reduzierung der Bereitstellungszeitpläne von monatlich auf **mehrmals pro Woche**
+- Leitung von Standards und Teamprozessen, einschließlich eines strategischen Tech-Debt-Prozesses, Testanleitungen sowie **Feedback** und **Progression**
+- förderte eine Kultur des **Wissensaustauschs** durch die Veranstaltung von Lunch 'n' Learns, Sitzungen zum Wissensaustausch und Hackathons
+- Verdoppelung des Teams auf \*6 multifunktionale Entwickler\*\*, Überwindung kultureller Unterschiede und Erzielung von Vereinbarungen durch regelmäßige 1:1-Gespräche
+- **Entwicklung von Systemen**, für die das Team die Verantwortung übernehmen kann, insbesondere eine aufgabenbasierte Datenmanagement-Pipeline und ein einzigartiges Ranking-/Suchsystem
+
+### Juni 2020 - Oktober 2021 | SGEF Digital Factory | Developer Team Lead | Berlin
 
 <Badge text="GraphQL"/>
 <Badge text="Agile"/>
 <Badge text="Cloud"/>
-<Badge text="Leadership"/>
+<Badge text="Leiterschaft"/>
 
-Developing a Hasura based API with Vue.js and Stencil front-end, interfacing with a custom-built machine learning platform, hosted in a modern event driven architecture in Azure for complex OCR needs in FinTech.
+- Entwicklung einer Hasura-basierten API in TypeScript mit Vue.js und Stencil-Frontend, verbunden mit einer kundenspezifischen Plattform für maschinelles Lernen, gehostet in einer **ereignisgesteuerten Architektur** in Azure für komplexe OCR-Anforderungen in der Finanzbranche.
+- Schnelles Prototyping\*\* von Funktionen in enger Zusammenarbeit mit einem multidisziplinären Scrum-Team
+- **Mentorisierte und leitete** ein Team von 5 Entwicklern und unterstützte persönliche und Unternehmensziele durch regelmäßige 1:1-Gespräche
+- Förderung der **Dokumentation** und **Testverfahren** mit Playwright, Jest und Vuepress
+- Lösen von **verflochtenen Abhängigkeiten** in globalen Einheiten, Arbeiten mit externen Teams und deren APIs
 
- - **Rapidly prototyping** features, working closely with a multi-disciplinary Scrum team
- - **Mentoring and leading** a team of 5 developers, supporting personal and company goals via regular 1:1s
- - Championing **documentation** and **testing practices** via Playwright, Jest and Vuepress
- - Resolving **intertwined dependencies** in global entities, working with external teams and their APIs
-
-### Feb 2016 - May 2020 | Bluesmith Information Systems | Technical specialist
+### Feb 2016 - Mai 2020 | Bluesmith Information Systems | Technical specialist
 
 <Badge text="Node.js"/>
 <Badge text="Vue.js"/>
 <Badge text="Agile"/>
 <Badge text="Containerisation"/>
-<Badge text="Training & mentorship"/>
+<Badge text="Training & Mentorschaft"/>
 
-Working predominantly in **close-knit** teams between 4 and 12 people, my role has shifted over time and projects.
+#### Feb 2017 - Mai 2020 | Full-Stack-Entwickler
 
-#### June 2019 – current | Senior responsibilities
- - Supporting the **deployment** and client-hosting of tailored solutions.
- - Working closely with product owners, designers, business analysts, full-stack developers, and business logic experts to deliver a cohesive product. 
+- **Performance- und Sicherheitstests** von Full-Stack-Anwendungen auf Basis einer **Mongo/Node/Express REST-Architektur**.
+- **Scoping, Schätzung und Beratung bei der Entwicklung langfristiger Funktionen** für interne und kundengesteuerte Anfragen
+- Vereinheitlichte und implementierte die schrittweise Einführung von **Agilen Arbeitsmethoden**.
+- Unterstützte die **Einführung** und das Kunden-Hosting von maßgeschneiderten Lösungen
+- Enge Zusammenarbeit mit Product Ownern, Designern, Business Analysten, Full-Stack-Entwicklern und Fachexperten, um ein kohärentes Produkt zu entwickeln
 
-#### Feb 2017 – May 2019 | Full-stack developer
- - **Performance** and **security testing** full-stack applications based on a **Mongo/Node/Express REST architecture**.
- - **Green and brownfield** agile development, maintaining and improving several modern and legacy SPAs based on Vue and Knockout **JavaScript frameworks**.
- -  **Scoping, estimation and advising on the design** of long-term features for both internal and client-led requests.
- - **Containerisation** of legacy applications to meet local development and hosting needs.
- - Unifying and implementing incremental adoption of **Agile working practices**.
+#### Feb 2016 - Jan 2017 | Dateningenieur
 
-#### Feb 2016 - Jan 2017 | Data engineer
- - Processing, managing and maintaining data loads for **terabyte scale data warehouses**.
- - **Data-centric support** for clients, monitoring several websites and data services reliant on highly available SQL Server backends. 
+- Verarbeitete, verwaltete und pflegte Datenladungen für Data Warehouses im Terabyte-Bereich
+- Datenbezogener Support für Kunden, Überwachung mehrerer Websites und Datendienste, die auf hochverfügbare SQL Server-Backends angewiesen sind
 
-### June – Sept 2013 | University of Leeds | Researcher
-<Badge text="Self-motivation" />
-<Badge text="Critical thinking" />
-<Badge text="Public speaking" />
+- Verarbeitung, Verwaltung und Pflege von Datenlasten für **Terabyte-große Data Warehouses**.
+- **Datenzentrische Unterstützung** für Kunden, Überwachung mehrerer Websites und Datendienste, die auf hochverfügbare SQL Server-Backends angewiesen sind.
 
-**Independently led** research internship in a small laboratory applying practical cell culture and molecular biology to research questions.
+### Juni – Sept 2013 | University of Leeds | Researcher
 
-## Voluntary history
+<Badge text="Selbstmotivation" />
+<Badge text="Kritisches Denken" />
+<Badge text="Öffentliches Reden" />
+
+**Selbstständig geführtes** Forschungspraktikum in einem kleinen Labor, in dem praktische Zellkultur und Molekularbiologie auf Forschungsfragen angewendet werden.
+
+## Freiwillige Geschichte
 
 ### Sept 2017 – Sept 2020 | English4all | Manager
+
 <Badge text="Flexibility" />
-<Badge text="Communication" />
+<Badge text="Kommunikation" />
 <Badge text="Teamwork" />
  
-Assisting in the running of an English language school for adult speakers of other languages.
-- Ensuring classes, staff and students are secure, prepared and happy.
-- Directing **pragmatic process improvements**, particularly with regard to IT services, such as an updated website with automated email rota.
-- Encouraging and developing social events like coffee and conversation.
-
+Mithilfe bei der Leitung einer Englisch-Sprachschule für erwachsene Fremdsprachige.
+- Sicherstellen, dass die Klassen, Mitarbeiter und Schüler sicher, vorbereitet und zufrieden sind.
+- Leitung von **pragmatischen Prozessverbesserungen**, insbesondere im Hinblick auf IT-Dienste, wie z. B. eine aktualisierte Website mit automatisiertem E-Mail-Dienstplan.
+- Förderung und Entwicklung von sozialen Veranstaltungen wie Kaffee und Konversation.
 
 ## Education and qualifications
 
-| Place                         | Date        | Qualification                           |
-| ----------------------------- | ----------- | --------------------------------------- |
-| University of Leeds           | 2011-2015   | MBIOL Biochemistry 2:1                  |
+| Ort                 | Date      | Qualification          |
+| ------------------- | --------- | ---------------------- |
+| University of Leeds | 2011-2015 | MBIOL Biochemistry 2:1 |
 
-## Key traits
+## Wichtige Eigenschaften
 
-**Communicator** – The best part of the job for me is sharing ideas over a whiteboard, video call or post-it notes over lunch. I have experience bridging the gap between the technical implementation and the stakeholders, and I’m often a volunteer to investigate and present on a new technology.
+**Kommunikator** - Ich bin schnell bei der Hand, wenn es um ein Whiteboard geht, ich bin immer bereit, bei einem Kaffee ein paar Ideen auszutauschen, und ich bin gut darin, Menschen zusammenzubringen. Ich schlage die Brücke zwischen der technischen Umsetzung und den nichttechnischen Interessengruppen.
 
-**Programmer at heart** – I am comfortable getting stuck into challenging problems, coming up with creative and pragmatic solutions. No problem can withstand the barrage of sustained coffee drinking and a debugging session.
+**Programmierer im Herzen** - Ich fühle mich wohl, wenn ich mich in herausfordernde Probleme einarbeite und kreative und pragmatische Lösungen innerhalb und außerhalb einer Codebasis finde. Sobald ich meine IDE hochgefahren und reichlich Kaffee getrunken habe, hält mich nicht mehr viel auf.
 
-**Fully engaged** – I thoroughly enjoy my work, and I often have experiments or plans in a notebook somewhere to allow me to go above and beyond the normal deliverable or job description. Previous examples of this have been improving the accessibility of the company website, improving standards, and hosting lunchtime conference videos.
+**Voller Einsatz** - Meine Arbeit macht mir viel Spaß, und ich habe oft Experimente oder Pläne in einem Notizbuch, die es mir ermöglichen, über die normale Leistung oder Aufgabenbeschreibung hinauszugehen.
 
-**Beginner level German** – A2 and actively learning, Netflix subtitles can take me only so far. 
+## Interessen und Aktivitäten
 
-## Interests and activities
+🏕️🧗🥾🇩🇪💻🎮
 
-🏕️🧗🥾🥁🇩🇪💻
+Ich klettere gerne in der Halle und wandere gerne im Freien, verpasse aber selten ein Wochenende mit Freunden, an dem ich bei einem komplexen Brettspiel eine Strategie entwickle. Ansonsten habe ich fast immer ein Spielentwicklungsprojekt am Laufen, und die verbleibende Zeit nutze ich, um mein Deutsch zu verbessern.
 
-I am a keen indoor climber, outdoor hiker, and spend free weekends camping somewhere in the wilderness. Pre-corona times, I developed an ad-hoc music group with friends where I played whatever is needed between a guitar, a Cajon or piano. Generally, I am always keen to learn new things, challenge myself and meet new people.
-
-## Contact
+## Kontakt
 
 [rwebb2305@gmail.com](mailto:rwebb2305@gmail.com)
