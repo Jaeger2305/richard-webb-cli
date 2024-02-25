@@ -2,7 +2,21 @@
 
 Diese Seite dokumentiert einige meiner Projekte und gibt, wo es sinnvoll ist, Links zu den Demoseiten und zum Quellcode an.
 
+## Biome Builder <img :src="$withBase('/biome-builder.png')" height="20" alt="im Industriezeitalter">
+
+<Badge text="C#"/>
+<Badge text="Unity"/>
+
+Mein Itch-Profil ist voll von Prototypen aus Gamejams, und ich habe dabei viele Techniken der Spieleentwicklung gelernt.
+
+Der Höhepunkt dieses Lernens ist ein funktionsreiches, aber einfaches [Rhythmusspiel](https://richard-webb.itch.io/biomebuilder), in dem verschiedene Biome aufgebaut werden, wenn der Beat im richtigen Takt geschlagen wird. Es gibt eine übersetzte Sprachausgabe, dynamischen Ton, Post-Processing und 3D-Effekten, und zeigt, wie ein fertiges Spiel aussehen könnte.
+
+<img :src="$withBase('/biome-builder.png')" height="367" alt="in the industrial era">
+
+Ich lasse mich stark vom Prozess der Spieleentwicklung und der Industrie inspirieren. Die angewandten Trends und Techniken lassen sich oft auf den Lebenszyklus der Softwareentwicklung übertragen, sind aber in der Regel noch hautnäher.
+
 ## Dobble-Klon <img :src="$withBase('/dobble-clone.png')" height="20" alt="das gesamte Spielfeld mit 3 Dobble-Karten">
+
 <Badge text="React"/>
 <Badge text="Typescript"/>
 
@@ -13,6 +27,7 @@ Dobble ist ein schnelles, einfaches Zuordnungsspiel und lässt sich gut in versc
 Das Ziel dieses Projekts war es, zu sehen, was ich in nur ein paar Abenden schaffen kann, angefangen von nichts, bis hin zu einer gehosteten, designten und funktionierenden Website. Der [Quelltext](https://github.com/Jaeger2305/match-language) deckt den globalen Zustand mit React-Kontext ab, sowie die Verwendung von React-Hooks und eine leicht verständliche Komponentenhierarchie.
 
 ## Industrialist <img :src="$withBase('/industrialist.png')" height="20" alt="android logo spelling industrialist over a cloud background with green forest">
+
 <Badge text="Go"/>
 <Badge text="Kafka"/>
 <Badge text="NativeScript"/>
@@ -29,6 +44,7 @@ Der zweite interessante Teil war das Schreiben der Websocket-API innerhalb von G
 Derzeit nur für ausgewählte Nutzer im Google Play Store verfügbar - wenn Sie Interesse am Testen haben, lassen Sie es mich wissen!
 
 ## Mental Health Tracker <img :src="$withBase('/mht.png')" height="20" alt="die 4 Brenner, die für die mentale Gesundheit wichtig sind; Bewegung, Schlaf, Soziales und Essen">
+
 <Badge text="Svelte"/>
 <Badge text="Typescript"/>
 
@@ -41,6 +57,7 @@ Ich fand die Animationen und die Reaktivität super einfach zu handhaben, ebenso
 Probieren Sie es auf Ihrem [lokalen Rechner](http://mht-mental-health-tracker.herokuapp.com/) aus und schauen Sie sich den [Quellcode](https://github.com/Jaeger2305/mental-health-tracker) an.
 
 ## Sprint-Rollen <img :src="$withBase('/react-roles-svg.png')" height="20" alt="das Haupt-Viewport von react-roles, das die grundlegenden Rollen in einem Sprint als bunte Kreise darstellt, mit denen interagiert werden kann, unter Ausnutzung von d3.js">
+
 <Badge text="GraphQL"/>
 <Badge text="React"/>
 <Badge text="Node.js"/>
@@ -50,6 +67,7 @@ Probieren Sie es auf Ihrem [lokalen Rechner](http://mht-mental-health-tracker.he
 <Badge text="D3.js"/>
 
 Haben Sie schon einmal an einem Projekt gearbeitet, das sich in der Hälfte seines 10. Sprints befindet, und es gibt 20 Leute, die einen Mix von Rollen übernehmen? Ich ertappe mich dabei, wie ich mich frage,
+
 1. Wer macht was?
 1. Wer redet mit wem?
 1. Wie unterscheidet sich dies von meinem letzten Projekt?
@@ -74,6 +92,7 @@ Sie können eine [Live-Version](https://react-roles.herokuapp.com) sehen oder de
 - Initialisieren mit einer Standardkonfiguration
 
 ## Vue nav-wheel <img :src="$withBase('/vue-nav-wheel-main.png')" height="20" alt="ein einfaches, glattes Navigationsrad, mit Links zu untergeordneten Seiten, die sich vom Zentrum ausbreiten">
+
 <Badge text="Vue.js"/>
 <Badge text="D3.js"/>
 <Badge text="Vue Test Utils"/>
@@ -95,13 +114,14 @@ Die Integration mit D3-shape und die Handhabung der Reaktivität von SVG-Element
 ### Features
 
 - Ein SVG-Viewport, der eine vue-router-Konfiguration rendert
-- Zeigt bedingte Routen abhängig von 
+- Zeigt bedingte Routen abhängig von
 - Passt die Form und Größe der Routen je nach Kontext und Konfiguration an
 - Interaktives Look and Feel
 - Hochgradig anpassbar und stilisierbar, unter Verwendung der BEM-Notation
 - Plug and Play wie bei Vue üblich
 
 ## English4all administration <img :src="$withBase('/e4a-classes-table.png')" height="20" alt="eine einfache Liste von Karten, mit Details zu den Klassen in jeder">
+
 <Badge text="Vue.js"/>
 <Badge text="Node.js"/>
 <Badge text="MongoDB"/>
