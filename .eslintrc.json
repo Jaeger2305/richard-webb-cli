@@ -7,14 +7,12 @@
         "jest/globals": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:vue/essential"
+        "eslint:recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 2018
     },
     "plugins": [
-        "vue",
         "jest"
     ]
 }

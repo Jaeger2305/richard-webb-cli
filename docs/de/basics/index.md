@@ -5,7 +5,7 @@ Diese Teile sind wichtig, um richtig zu sein, tut mir leid, dass sie nicht über
 :::
 
 ::: tip
-If you've already seen my CV, skip to the [examples](/de/examples/)
+Falls Sie mein Lebenslauf schon gesehen haben, springen Sie rüber zu den [Beispielen](/de/examples/)
 :::
 
 [[toc]]

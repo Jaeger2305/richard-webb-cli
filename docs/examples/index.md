@@ -1,8 +1,12 @@
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 # Examples
 
 This page documents some of my projects, giving links to the demo sites and source code where appropriate.
 
-## Biome Builder <img :src="$withBase('/biome-builder.png')"  height="20" alt="in the industrial era">
+## Biome Builder
 
 <Badge text="C#"/>
 <Badge text="Unity"/>
@@ -11,22 +15,22 @@ My itch profile is full of prototypes from gamejams, learning many techniques of
 
 The culmination of these learnings is a feature rich, but basic [rhythm game](https://richard-webb.itch.io/biomebuilder), where different biomes are constructed if the beat is hit on time. There are translated voiceovers, dynamic sound achieved via FMOD, post processing and 3d effects, demonstrating what a final game might look like.
 
-<img :src="$withBase('/biome-builder.png')"  height="367" alt="in the industrial era">
+<img :src="withBase('/biome-builder.png')"  height="367" alt="in the industrial era">
 
 I take a lot of inspiration from the game development process and industry, the trends and techniques applied can often be applied to the software development lifecycle, but typically live even closer to the bone.
 
-## Dobble clone <img :src="$withBase('/dobble-clone.png')" height="20" alt="the overall playing field with 3 Dobble cards">
+## Dobble clone
 
 <Badge text="React"/>
 <Badge text="Typescript"/>
 
 Dobble is a fast paced simple matching game, and is great to play in different languages. Now I have it always available on [website](https://eager-ritchie-aaa505.netlify.app/)!
 
-<img :src="$withBase('/dobble-clone.gif')"  height="367" alt="a few rounds of matching cards in Dobble, made by Richard Webb">
+<img :src="withBase('/dobble-clone.gif')"  height="367" alt="a few rounds of matching cards in Dobble, made by Richard Webb">
 
 The goal of this project was to see what I could get done in just a couple of evenings, starting from nothing, to a hosted, designed and functional website. The [source](https://github.com/Jaeger2305/match-language) covers global state with React context, as well as using React Hooks and an easy to understand component hierarchy.
 
-## Industrialist <img :src="$withBase('/industrialist.png')" height="20" alt="android logo spelling industrialist over a cloud background with green forest">
+## Industrialist
 
 <Badge text="Go"/>
 <Badge text="Kafka"/>
@@ -39,11 +43,11 @@ After hearing lots about Native development, I was curious to find out how hard 
 
 The second interesting part was writing the websocket API inside of Go which was, as promised, really easy and enjoyable. I would seriously consider using Go for future project work, although mocking some interfaces for testing from 3rd party plugins was not easy.
 
-<img :src="$withBase('/industrialist-play.png')" height="300" alt="the main play area with coal mines, trading posts and more">
+<img :src="withBase('/industrialist-play.png')" height="300" alt="the main play area with coal mines, trading posts and more">
 
 Currently available only to select users on the Google Play store - if you're interested in testing, let me know!
 
-## Mental Health Tracker <img :src="$withBase('/mht.png')" height="20" alt="the 4 burners essential for mental health; exercise, sleep, social and food">
+## Mental Health Tracker
 
 <Badge text="Svelte"/>
 <Badge text="Typescript"/>
@@ -52,11 +56,11 @@ The Corona times haven't been easy for anyone, and I've long believed my own men
 
 I found the animations and reactivity super easy to deal with, as well as easy Typescript integration, and would be happy to work with it on a bigger project.
 
-<img :src="$withBase('/mht.gif')"  height="367" alt="configure the 4 burners with SVG animations">
+<img :src="withBase('/mht.gif')"  height="367" alt="configure the 4 burners with SVG animations">
 
 Have a play on your [local machine](http://mht-mental-health-tracker.herokuapp.com/) and check out the [source code](https://github.com/Jaeger2305/mental-health-tracker).
 
-## Sprint roles <img :src="$withBase('/react-roles-svg.png')" height="20" alt="the main viewport of react-roles, detailing the basic roles in a sprint as colourful circles that can be interacted with, taking advantage of d3.js">
+## Sprint roles
 
 <Badge text="GraphQL"/>
 <Badge text="React"/>
@@ -73,15 +77,15 @@ Have you ever started on a project that was half way through its 10th sprint, an
 1. How is this different to my last project?
 1. What gap is there for me to fill?
 
-<img :src="$withBase('/react-roles-sidebar.png')" height="450" alt="the sidebar from the above gif video. There are react Formik dropdowns styled using Minimal-UI">
+<img :src="withBase('/react-roles-sidebar.png')" height="450" alt="the sidebar from the above gif video. There are react Formik dropdowns styled using Minimal-UI">
 
-<img :src="$withBase('/react-roles-svg.png')" height="450" alt="the main viewport of react-roles, detailing the basic roles in a sprint as colourful circles that can be interacted with, taking advantage of d3.js">
+<img :src="withBase('/react-roles-svg.png')" height="450" alt="the main viewport of react-roles, detailing the basic roles in a sprint as colourful circles that can be interacted with, taking advantage of d3.js">
 
 This project was a chance to play with different technologies, but also provide a visual and interactive interface to make the above questions less frustrating.
 
 You can see a [live version](https://react-roles.herokuapp.com) or checkout the [source code](https://bitbucket.org/Jaeger2305/react-roles/src/master/). It's a hobby tier herokuapp, so allow a minute on first load while the underlying container becomes active.
 
-<img :src="$withBase('/react-roles-demo.gif')" alt="a 1 minute video showing 4 interconnected nodes (cat, dog, mouse, elephant) being built from a custom UI, made by Richard Webb">
+<img :src="withBase('/react-roles-demo.gif')" alt="a 1 minute video showing 4 interconnected nodes (cat, dog, mouse, elephant) being built from a custom UI, made by Richard Webb">
 
 ### Features
 
@@ -91,7 +95,7 @@ You can see a [live version](https://react-roles.herokuapp.com) or checkout the 
 - Persist to a database
 - Initialise with a default config
 
-## Vue nav-wheel <img :src="$withBase('/vue-nav-wheel-main.png')" height="20" alt="a basic smooth navigation wheel, with links to child pages spreading out from the center">
+## Vue nav-wheel
 
 <Badge text="Vue.js"/>
 <Badge text="D3.js"/>
@@ -99,15 +103,15 @@ You can see a [live version](https://react-roles.herokuapp.com) or checkout the 
 
 Are you bored of the typical navbar, with inaccessible hover-overs and covering half the screen? I wanted a navigation option that could pop up as a modal, with large buttons to navigate through a website, in a novel way.
 
-<img :src="$withBase('/vue-nav-wheel-shape-customisation.gif')" alt="a quickfire gif video of a hundred random configurations possible with the vue-nav-wheel open source package, made by Richard Webb">
+<img :src="withBase('/vue-nav-wheel-shape-customisation.gif')" alt="a quickfire gif video of a hundred random configurations possible with the vue-nav-wheel open source package, made by Richard Webb">
 
 The result is a [package on npm](https://www.npmjs.com/package/vue-nav-wheel), which takes an existing vue-router config and renders it in a radial and recursive way, with a number of configurable options both for function and style. Here's the [source code](https://github.com/Jaeger2305/vue-nav-wheel).
 
 Stylistic design isn't my strength, so I wanted the styling and the look and feel to be configurable in case someone wants to build on the idea. The typical apps I develop have significant domain logic and complex pure JavaScript logic, and as a result there sometimes isn't scope for a creative SVG implementation.
 
-<img :src="$withBase('/nav-wheel-style-1.png')" height="240" alt="a navigation wheel with a purple center and increasingly lighter shades of green on the outside">
-<img :src="$withBase('/nav-wheel-style-2.png')" height="240" alt="a navigation wheel with a grey background and jet black annulars with a red outline">
-<img :src="$withBase('/nav-wheel-style-3.png')" height="240" alt="a navigation wheel with smoothed edges and a SVG icon of a stickman holding coffee cups at the center">
+<img :src="withBase('/nav-wheel-style-1.png')" height="240" alt="a navigation wheel with a purple center and increasingly lighter shades of green on the outside">
+<img :src="withBase('/nav-wheel-style-2.png')" height="240" alt="a navigation wheel with a grey background and jet black annulars with a red outline">
+<img :src="withBase('/nav-wheel-style-3.png')" height="240" alt="a navigation wheel with smoothed edges and a SVG icon of a stickman holding coffee cups at the center">
 
 Integrating with D3-shape and handling the reactivity of SVG elements in Vue surprised me with how little trouble I had. The unit testing of SVG Vue components did turn out to be fiddly in some parts, but was also mostly fine.
 
@@ -120,7 +124,7 @@ Integrating with D3-shape and handling the reactivity of SVG elements in Vue sur
 - Highly customisable and stylable, using BEM notation
 - Plug and play in a standard Vue way
 
-## English4all administration <img :src="$withBase('/e4a-classes-table.png')" height="20" alt="a simple list of cards, with details of the classes in each">
+## English4all administration
 
 <Badge text="Vue.js"/>
 <Badge text="Node.js"/>
@@ -133,8 +137,8 @@ The charity I've been involved with for 2.5 years was sufferring from a lack of 
 
 The catch: 0 budget.
 
-<img :src="$withBase('/e4a-student-registration.gif')" width="367" alt="gif video of the registration process for new students - a blue form with multiple steps">
-<img :src="$withBase('/e4a-assistant-registration.gif')" width="367" alt="gif videio showing the registration process for new assistants - a green form with multiple steps">
+<img :src="withBase('/e4a-student-registration.gif')" width="367" alt="gif video of the registration process for new students - a blue form with multiple steps">
+<img :src="withBase('/e4a-assistant-registration.gif')" width="367" alt="gif videio showing the registration process for new assistants - a green form with multiple steps">
 
 As a hobby project for a small charity, and its intent being to flex my programming muscles on the side, I was most interested in having a tool to save me time that wouldn't cost anything to host.
 
@@ -142,7 +146,7 @@ There aren't many lessons to be learned on UI/UX here, but the server + infrastr
 
 We use this as an internal tool now, which will become unsupported in the coming months. For now, no source, only the [active site](https://english4allinleeds.herokuapp.com/).
 
-<img :src="$withBase('/e4a-class-email.gif')" width="740" alt="gif video of filtering a class and crafting a custom email after edits to the UI">
+<img :src="withBase('/e4a-class-email.gif')" width="740" alt="gif video of filtering a class and crafting a custom email after edits to the UI">
 
 The result is a full featured app allowing administrators to organise, log and track student/volunteer progress as they attend various classes throughout the year.
 

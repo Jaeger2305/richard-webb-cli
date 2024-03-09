@@ -22,7 +22,7 @@ Die Website ist in Abschnitte unterteilt, die eine traditionelle Software-Dokume
 
 richard-webb-cli (rwc) ist ein in JavaScript geschriebenes Werkzeug für die Verwendung auf der Kommandozeile. Es gibt Markdown-Informationen basierend auf seinen Parametern zurück, aber Sie können mich auch per E-Mail darüber erreichen.
 
-::: Warnung
+::: warning
 Eine gewisse Vertrautheit mit Node und der Kommandozeile wird hier vorausgesetzt. Überspringen Sie den [Lebenslauf](/de/basics/), oder [Projekte](/de/examples/), wenn Sie an diesem Teil nicht interessiert sind.
 :::
 
