@@ -1,4 +1,6 @@
-const prompts = require("prompts");
+import prompts from "prompts";
+import { readFileSync } from "fs";
+import { jest } from "@jest/globals";
 const mockActions = {
   getSkills: jest.fn(),
   getHistory: jest.fn(),
@@ -8,39 +10,39 @@ const mockActions = {
   sendStar: jest.fn(),
   handleDefault: jest.fn(),
   handleSend: jest.fn(),
-  handleGet: jest.fn()
+  handleGet: jest.fn(),
 };
 const mockExecutePromptResponse = jest.fn();
-jest.mock("../src/utils", () => ({
+jest.unstable_mockModule("../src/utils", () => ({
   executePromptResponse: mockExecutePromptResponse,
   actions: mockActions,
-  options: {}
+  options: {},
 }));
-const version = require("../package").version;
-const cli = require("../src/main");
+const { main: cli } = await import("../src/main");
+const packageJson = JSON.parse(readFileSync("./package.json"));
 
 const aliases = {
   version: ["--version", "-v"],
   help: ["--help"],
   interactive: ["--interactive", "-i"],
   keepAlive: ["--keep-alive", "-k"],
-  quiet: ["--quiet", "-q"]
+  quiet: ["--quiet", "-q"],
 };
 
 beforeEach(() => {
-  Object.values(mockActions).forEach(mock => mock.mockClear());
+  Object.values(mockActions).forEach((mock) => mock.mockClear());
   mockExecutePromptResponse.mockClear();
 });
 
 describe("CLI", () => {
-  aliases.version.forEach(versionAlias => {
+  aliases.version.forEach((versionAlias) => {
     test(`will print the version when passing in ${versionAlias}`, async () => {
       const mockLog = jest.fn();
       console.log = mockLog;
       const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
       process.argv = ["rwc", versionAlias];
       await cli();
-      expect(mockLog).toHaveBeenCalledWith(version);
+      expect(mockLog).toHaveBeenCalledWith(packageJson.version);
       expect(mockExit).toHaveBeenCalledWith(0);
     });
   });
@@ -59,7 +61,7 @@ describe("CLI", () => {
     process.argv = ["rwc", "get", "--info", "skills"];
     await cli();
     expect(mockActions.handleGet).toBeCalledWith(
-      expect.objectContaining({ info: ["skills"] })
+      expect.objectContaining({ info: ["skills"] }),
     );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
@@ -68,7 +70,7 @@ describe("CLI", () => {
     process.argv = ["rwc", "get", "--info", "history"];
     await cli();
     expect(mockActions.handleGet).toBeCalledWith(
-      expect.objectContaining({ info: ["history"] })
+      expect.objectContaining({ info: ["history"] }),
     );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
@@ -77,7 +79,7 @@ describe("CLI", () => {
     process.argv = ["rwc", "get", "--info", "examples"];
     await cli();
     expect(mockActions.handleGet).toBeCalledWith(
-      expect.objectContaining({ info: ["examples"] })
+      expect.objectContaining({ info: ["examples"] }),
     );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
@@ -86,7 +88,7 @@ describe("CLI", () => {
     process.argv = ["rwc", "send", "--action", "email"];
     await cli();
     expect(mockActions.handleSend).toBeCalledWith(
-      expect.objectContaining({ action: ["email"] })
+      expect.objectContaining({ action: ["email"] }),
     );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
@@ -95,7 +97,7 @@ describe("CLI", () => {
     process.argv = ["rwc", "send", "--action", "follow"];
     await cli();
     expect(mockActions.handleSend).toBeCalledWith(
-      expect.objectContaining({ action: ["follow"] })
+      expect.objectContaining({ action: ["follow"] }),
     );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
@@ -104,11 +106,11 @@ describe("CLI", () => {
     process.argv = ["rwc", "send", "--action", "star"];
     await cli();
     expect(mockActions.handleSend).toBeCalledWith(
-      expect.objectContaining({ action: ["star"] })
+      expect.objectContaining({ action: ["star"] }),
     );
     expect(mockExit).toHaveBeenCalledWith(0);
   });
-  aliases.interactive.forEach(interactiveAlias => {
+  aliases.interactive.forEach((interactiveAlias) => {
     test(`runs in interactive mode with an async question using ${interactiveAlias}`, async () => {
       const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
       const mockPromptSelection = jest.fn();
@@ -122,14 +124,14 @@ describe("CLI", () => {
       expect(mockExit).toHaveBeenCalledWith(0);
     });
   });
-  aliases.quiet.forEach(quietAlias => {
+  aliases.quiet.forEach((quietAlias) => {
     test(`hides the ASCII art with argument ${quietAlias}`, async () => {
       const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
       console.log = jest.fn();
       process.argv = ["rwc", quietAlias];
       await cli();
       expect(mockActions.handleDefault).toBeCalledWith(
-        expect.objectContaining({ quiet: true })
+        expect.objectContaining({ quiet: true }),
       );
       expect(mockExit).toHaveBeenCalledWith(0);
     });
@@ -141,7 +143,7 @@ describe("CLI", () => {
     expect(mockActions.handleDefault).toHaveBeenCalled();
     expect(mockExit).toHaveBeenCalledWith(0);
   });
-  aliases.keepAlive.forEach(keepAliveAlias => {
+  aliases.keepAlive.forEach((keepAliveAlias) => {
     test(`will prompt to keep alive if param supplied for ${keepAliveAlias}`, async () => {
       const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {});
       const mockPromptSelection = jest.fn();

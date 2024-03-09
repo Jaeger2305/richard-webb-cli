@@ -1,57 +1,58 @@
-const prompts = require("prompts");
-const { options, actions, executePromptResponse } = require("./utils");
+import prompts from "prompts";
+import yargs from "yargs";
+import { options, actions, executePromptResponse } from "./utils.js";
 
-module.exports = async function main() {
-  const yargsConfig = await require("yargs")(process.argv.slice(1))
+export async function main() {
+  const yargsConfig = await yargs(process.argv.slice(1))
     .command({
       command: "*",
       description: "welcome message",
       builder: () => {},
-      handler: actions.handleDefault
+      handler: actions.handleDefault,
     })
     .option("version", {
       description: "get the package version",
       alias: "v",
-      type: "boolean"
+      type: "boolean",
     })
     .option("keep-alive", {
       description: "keep the prompt menu open when in interactive mode",
       alias: "k",
-      type: "boolean"
+      type: "boolean",
     })
     .option("interactive", {
       description:
         "enabled prompt mode, where the options are exposed in an interactive prompt menu",
       alias: "i",
-      type: "boolean"
+      type: "boolean",
     })
     .option("quiet", {
       description: "hide the ASCII art",
       alias: "q",
-      type: "boolean"
+      type: "boolean",
     })
     .command({
       command: "send",
       description:
         "give Richard Webb something, like an email or a warm fuzzy feeling",
-      builder: yargs =>
+      builder: (yargs) =>
         yargs.option("action", {
           default: "email",
           array: true,
-          choices: ["email", "follow", "star"]
+          choices: ["email", "follow", "star"],
         }),
-      handler: actions.handleSend
+      handler: actions.handleSend,
     })
     .command({
       command: "get",
       description: "retrieve key attributes about Richard Webb",
-      builder: yargs =>
+      builder: (yargs) =>
         yargs.option("info", {
           default: "skills",
           array: true,
-          choices: ["skills", "history", "examples"]
+          choices: ["skills", "history", "examples"],
         }),
-      handler: actions.handleGet
+      handler: actions.handleGet,
     }).argv;
   const { interactive: isInteractive, "keep-alive": isKeptAlive } = yargsConfig;
 
@@ -66,8 +67,8 @@ module.exports = async function main() {
         options.getVersion,
         options.getAttribute,
         options.sendInfo,
-        options.exit
-      ]
+        options.exit,
+      ],
     });
 
     await executePromptResponse(response);
@@ -77,7 +78,7 @@ module.exports = async function main() {
           type: "confirm",
           name: "value",
           message: "Exit",
-          initial: true
+          initial: true,
         })
       : { value: true };
 
@@ -86,4 +87,4 @@ module.exports = async function main() {
       break; // seems pointless, but important for tests.
     }
   }
-};
+}

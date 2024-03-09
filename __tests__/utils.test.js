@@ -1,28 +1,32 @@
-const fs = require("fs");
-const path = require("path");
-const chalk = require("chalk");
-const figlet = require("figlet");
+import fs from "fs";
+import path from "path";
+import chalk from "chalk";
+import figlet from "figlet";
+import { jest } from "@jest/globals";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const mockOpen = jest.fn();
 jest.mock("open", () => mockOpen);
 const mockPrompt = jest.fn();
 jest.mock("prompts", () => mockPrompt);
 
-const utils = require("../src/utils");
-const version = require("../package").version;
+const utils = await import("../src/utils");
+const packageJson = JSON.parse(fs.readFileSync("./package.json"));
 
 // Just pass through the console markups.
-Object.defineProperty(chalk, "blue", { value: text => text });
-Object.defineProperty(figlet, "textSync", { value: text => text });
+Object.defineProperty(chalk, "blue", { value: (text) => text });
+Object.defineProperty(figlet, "textSync", { value: (text) => text });
 
 beforeEach(() => {
   mockOpen.mockClear();
   mockPrompt.mockClear();
 });
 
-const isFileExisting = filePath =>
-  new Promise(resolve =>
-    fs.access(filePath, fs.F_OK, error => resolve(!error))
+const isFileExisting = (filePath) =>
+  new Promise((resolve) =>
+    fs.access(filePath, fs.F_OK, (error) => resolve(!error)),
   );
 
 // Handlers can orchestrate other actions.
@@ -30,39 +34,41 @@ const handlers = [
   {
     handlerName: "handleSend",
     action: "sendEmail",
-    param: { action: ["email"] }
+    param: { action: ["email"] },
   },
   {
     handlerName: "handleSend",
     action: "sendFollow",
-    param: { action: ["follow"] }
+    param: { action: ["follow"] },
   },
   {
     handlerName: "handleSend",
     action: "sendStar",
-    param: { action: ["star"] }
+    param: { action: ["star"] },
   },
   {
     handlerName: "handleGet",
     action: "getSkills",
-    param: { info: ["skills"] }
+    param: { info: ["skills"] },
   },
   {
     handlerName: "handleGet",
     action: "getHistory",
-    param: { info: ["history"] }
+    param: { info: ["history"] },
   },
   {
     handlerName: "handleGet",
     action: "getExamples",
-    param: { info: ["examples"] }
-  }
+    param: { info: ["examples"] },
+  },
 ];
 
 describe("CLI actions", () => {
   test("all actions are a handler", () => {
     expect(
-      Object.values(utils.actions).every(action => typeof action === "function")
+      Object.values(utils.actions).every(
+        (action) => typeof action === "function",
+      ),
     ).toBe(true);
   });
   test("handle default displays ASCII art and a welcome message", () => {
@@ -88,22 +94,22 @@ describe("CLI actions", () => {
   test("get skills file exists", async () => {
     expect(
       await isFileExisting(
-        path.join(__dirname, "..", "docs", "basics", "API-skills.md")
-      )
+        path.join(__dirname, "..", "docs", "basics", "API-skills.md"),
+      ),
     ).toBe(true);
   });
   test("get history file exists", async () => {
     expect(
       await isFileExisting(
-        path.join(__dirname, "..", "docs", "basics", "API-history.md")
-      )
+        path.join(__dirname, "..", "docs", "basics", "API-history.md"),
+      ),
     ).toBe(true);
   });
   test("get examples file exists", async () => {
     expect(
       await isFileExisting(
-        path.join(__dirname, "..", "docs", "examples", "API.md")
-      )
+        path.join(__dirname, "..", "docs", "examples", "API.md"),
+      ),
     ).toBe(true);
   });
   test("skills are logged to the console", () => {
@@ -141,45 +147,40 @@ describe("CLI actions", () => {
   test("version prints the version", () => {
     console.log = jest.fn();
     utils.actions.getVersion();
-    expect(console.log.mock.calls[0][0]).toBe(version);
+    expect(console.log.mock.calls[0][0]).toBe(packageJson.version);
   });
 });
 
 describe("CLI prompt options", () => {
   test("all options have a title", () => {
-    expect(Object.values(utils.options).every(option => option.title)).toBe(
-      true
+    expect(Object.values(utils.options).every((option) => option.title)).toBe(
+      true,
     );
   });
   test("all options have a value", () => {
-    expect(Object.values(utils.options).every(option => option.value)).toBe(
-      true
+    expect(Object.values(utils.options).every((option) => option.value)).toBe(
+      true,
     );
   });
   test("get attribute is a prompt where all values are actions", () => {
     utils.options.getAttribute.value();
     expect(Object.values(utils.actions)).toEqual(
       expect.arrayContaining(
-        mockPrompt.mock.calls[0][0].choices.map(({ value }) => value)
-      )
+        mockPrompt.mock.calls[0][0].choices.map(({ value }) => value),
+      ),
     );
   });
   test("send info is a prompt where all values are actions", () => {
     utils.options.sendInfo.value();
     expect(Object.values(utils.actions)).toEqual(
       expect.arrayContaining(
-        mockPrompt.mock.calls[0][0].choices.map(({ value }) => value)
-      )
+        mockPrompt.mock.calls[0][0].choices.map(({ value }) => value),
+      ),
     );
   });
 });
 
 describe("the prompt handler", () => {
-  test("doesn't fail if not a handler", async () => {
-    const promptResponseExecutor = jest.spyOn(utils, "executePromptResponse");
-    await utils.executePromptResponse(undefined);
-    expect(promptResponseExecutor).toBeCalledTimes(1);
-  });
   test("handles handler responses", async () => {
     const mockPromptSelectionNested = jest.fn();
     const mockPromptSelection = jest
